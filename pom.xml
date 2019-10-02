@@ -14,9 +14,9 @@
     </parent>
     <groupId>com.tornikeperadze</groupId>
     <artifactId>pet-clinic</artifactId>
-    <version>0.0.4-SNAPSHOT</version>
+    <version>0.0.4</version>
     <name>pet-clinic</name>
-    <description>Pet Client Projet</description>
+    <description>Pet Client Project</description>
 
     <properties>
         <java.version>11</java.version>
@@ -36,6 +36,7 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <configuration>
                     <goals>install</goals>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <checkModificationExcludes>
                         <checkModificationExclude>pom.xml</checkModificationExclude>
                     </checkModificationExcludes>
@@ -46,7 +47,7 @@
 
     <scm>
         <developerConnection>scm:git:git@github.com:peradze/pet-clinic.git</developerConnection>
-      <tag>HEAD</tag>
+      <tag>pet-clinic-0.0.4</tag>
   </scm>
 
 </project>
