@@ -3,7 +3,7 @@ package com.tornikeperadze.petclinic.bootstrap;
 import com.tornikeperadze.petclinic.model.*;
 import com.tornikeperadze.petclinic.services.OwnerService;
 import com.tornikeperadze.petclinic.services.PetTypeService;
-import com.tornikeperadze.petclinic.services.SpecialitiesService;
+import com.tornikeperadze.petclinic.services.SpecialityService;
 import com.tornikeperadze.petclinic.services.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -16,13 +16,13 @@ public class DataLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
-    private final SpecialitiesService specialitiesService;
+    private final SpecialityService specialityService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitiesService specialitiesService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
-        this.specialitiesService = specialitiesService;
+        this.specialityService = specialityService;
     }
 
     @Override
@@ -80,15 +80,15 @@ public class DataLoader implements CommandLineRunner {
 
         Speciality radiology = new Speciality();
         radiology.setDescription("Radiology");
-        specialitiesService.save(radiology);
+        specialityService.save(radiology);
 
         Speciality surgery = new Speciality();
         radiology.setDescription("Surgery");
-        specialitiesService.save(surgery);
+        specialityService.save(surgery);
 
         Speciality dentistry = new Speciality();
         radiology.setDescription("Dentistry");
-        specialitiesService.save(dentistry);
+        specialityService.save(dentistry);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
