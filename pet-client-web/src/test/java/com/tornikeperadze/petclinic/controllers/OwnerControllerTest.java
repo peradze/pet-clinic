@@ -78,6 +78,14 @@ class OwnerControllerTest {
     }
 
     @Test
+    void initCreationForm() throws Exception {
+        mockMvc.perform(get("/owners/new"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("owners/createOrUpdateOwnerForm"))
+                .andExpect(model().attributeExists("owner"));
+    }
+
+    @Test
     void displayOwner() throws Exception {
         when(ownerService.findById(any())).thenReturn(Owner.builder().id(1L).build());
 
