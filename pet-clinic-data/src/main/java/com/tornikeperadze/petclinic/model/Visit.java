@@ -21,4 +21,8 @@ public class Visit extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "pet_id")
     private Pet pet;
+
+    public void setPetId(Long petId) {
+        this.pet.setId(petId);
+    }
 }
