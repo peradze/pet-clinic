@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.Collection;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/owners/{ownerId}")
@@ -62,11 +63,13 @@ public class PetController {
             result.rejectValue("name", "duplicate", "already exists");
         }
         owner.getPets().add(pet);
+        pet.setOwner(owner);
         if (result.hasErrors()) {
             model.put("pet", pet);
             return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
         } else {
             petService.save(pet);
+            Set<Pet> pets = petService.findAll();
             return "redirect:/owners/{ownerId}";
         }
     }
